@@ -1,39 +1,5 @@
 #include "cub3D.h"
 
-// char **transpose_map(t_game *game)
-// {
-//     int i, j;
-//     char **new_map;
-// 	char *line;
-
-// 	new_map = malloc(sizeof(char *) * (game->pure_map.map_height + 1));
-
-// 	i = 0;
-// 	while (i < game->pure_map.map_height)
-// 	{
-// 		new_map[i] = malloc(sizeof(char) * (game->pure_map.map_width + 1));
-// 		if (!new_map[i])
-// 		{
-// 			perr(__func__, "malloc failed");
-// 			return (NULL);
-// 		}
-// 		j = 0;
-// 		while (j < game->pure_map.map_width)
-// 		{
-// 			if (game->pure_map.map[j])
-// 			{
-// 			line = game->pure_map.map[j];
-// 			if (line && i < (int)ft_strlen(line))
-// 				new_map[i][j] = game->pure_map.map[j][i];
-// 			}
-// 			j++;
-// 		}
-// 		new_map[i][j] = '\0';
-// 		i++;
-// 	}
-// 	return (new_map);
-// }
-
 void	set_player(t_game *game)
 {
 	int i;
@@ -155,12 +121,6 @@ int main(int ac, char **av)
 		perr(__func__, "validate_map failed");
 		return (dispose(game), 1);
 	}
-
-	// if (init_mlx(game) != OK)
-	// {
-	// 	perr(__func__, "mlx init failed");
-	// 	return (dispose(game), 1);
-	// }
 	int i;
 	i = 0;
 	while (game->map.map[i])
@@ -169,60 +129,10 @@ int main(int ac, char **av)
 	}
 	game->map.map_height = i;
 
-
-// game->pure_map.map = (char *[]) {
-//     "   1111111111111111111111111",
-//     "   1000000000100000000000001",
-//     "1011000000100000010000001",
-// 	"   ",
-//     "1011000000100000010000001",
-//     "1011000000100000010000001",
-//     "1011000000100000010000001",
-//     "101100S000100000010000001",
-//     "1011000000100000010000001",
-//     "1001000000000011110111111",
-//     "1111111110110000011100000001",
-//     "100000000011000001110011111111111",
-//     "1000000000111101110000001",
-//     "11111111111111011101001011111",
-//     "11111111110101011100000010001",
-//     "10000000000000001100000010001",
-//     "10000000000000001101010010001",
-//     "11000001110101011111011110011",
-//     "11111111 1110101 101111010001",
-//     "11111111 1111111 111111111111",
-//     NULL
-// };
-// game->pure_map.map = (char *[]) {
-//     "11111111111 111111111111",
-//     "1001000000111000000000001111",
-//     "111011000001110000000000001",
-//     "100100000000000000000000111",
-//     "111111111011000001110000000001",
-//     "10000000011000001110111111111111",
-//     "11110111111111011100000010001",
-//     "11110111111111011101010010001",
-//     "1000000110101011100010010001",
-//     "10000000000000000000001100000010001",
-//     "10000000000000011010100100111",
-//     "1100001110101011111011111N1111",
-//     "11110111 111011 10111010101",
-//     "1111111 111111 111111111111",
-//     NULL
-// };
-i = 0;
-
 game->pure_map.map = pure_map(game->map.map, game->map.map_height);
 game->pure_map.map_height = game->map.map_height;
 game->pure_map.map_width = game->map.map_width;
 
-// char **map = transpose_map(game);
-// i = 0;
-// while (map[i])
-// {
-// 	printf("%s\n", map[i]);
-// 	i++;
-// }
 
 set_player(game);
 i = 0;
@@ -231,18 +141,7 @@ while (game->pure_map.map[i])
 	printf("%s\n", game->pure_map.map[i]);
 	i++;
 }
-
 	start_game(game);
-
-// 	mlx_hook(game->win_ptr, 17, 0, close_window, game); //çarpı işaretinden kapanacak
-//    // mlx_key_hook(game->win_ptr, esc_press, game); //esc ile kapancak
-// 	if (image_up(game) != OK)
-// 	{
-// 		perr(__func__, "image up failed");
-// 		return (dispose(game), 1);
-// 	}
-// 	mlx_loop_hook(game->mlx.mlx, start_game, game);
-// 	mlx_loop(game->mlx);
 	return (dispose(game), 0);
 }
 

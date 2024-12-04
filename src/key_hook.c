@@ -38,7 +38,6 @@ float	ray(t_game *game, float v)
 
 			if ((int)r.vert_y < 0 || (int)r.vert_y >= game->pure_map.map_height - 1)
 				return (INFINITY);
-			printf("XXXXXXXXgame->pure_map.map[(int)r.vert_y][index_x] : %c\n", game->pure_map.map[(int)r.vert_y][index_x]);
 			if (game->pure_map.map[(int)r.vert_y][index_x] == '1')
 				return (save_color(game, r.vert_dist, r.sx + 1, r.vert_w));
 			else
@@ -54,7 +53,6 @@ float	ray(t_game *game, float v)
 
 			if (index_y < 0 || index_y >= game->pure_map.map_height - 1)
 				return (INFINITY);
-			printf("YYYYYYYYgame->pure_map.map[index_y][(int)r.hor_x] : %c\n", game->pure_map.map[index_y][(int)r.hor_x]);
 			if (game->pure_map.map[index_y][(int)r.hor_x] == '1')
 				return (save_color(game, r.hor_dist, r.sy + 2, r.hor_w));
 			else
@@ -62,30 +60,6 @@ float	ray(t_game *game, float v)
 		}
 	}
 }
-// float	ray(t_game *game, float v)
-// {
-// 	t_ray	r;
-
-// 	ray_initial_calculations(game, &r, v);
-// 	while (1)
-// 	{
-// 		ray_next_step_calculation(game, &r);
-// 		if (r.vert_dist < r.hor_dist)
-// 		{
-// 			if (game->pure_map.map[(int)r.vert_y][(int)r.vert_x + (r.sx - 1) / 2] == '1')
-// 				return (save_color(game, r.vert_dist, r.sx + 1, r.vert_w));
-// 			else
-// 				r.vert_x += r.sx;
-// 		}
-// 		else
-// 		{
-// 			if (game->pure_map.map[(int)r.hor_y + (r.sy - 1) / 2][(int)r.hor_x] == '1')
-// 				return (save_color(game, r.hor_dist, r.sy + 2, r.hor_w));
-// 			else
-// 				r.hor_y += r.sy;
-// 		}
-// 	}
-// }
 
 void	move(t_game *game, int direction)
 {

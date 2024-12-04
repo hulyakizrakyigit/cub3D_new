@@ -41,7 +41,6 @@ void	ray_casting(t_game *game)
 	while (++x < WIDTH)
 	{
 		ray_r = ray(game, v);
-		// printf("ray_r = %f\n", ray_r);
 		if (ray_r == INFINITY)
 			ray_r = 0.1f;
 		if (ray_r < 0.1f)
@@ -67,17 +66,11 @@ void	draw_ceiling_and_floor(t_game *game)
 
 void	draw(t_game *game)
 {
-	int	i = 0;
-	while (game->pure_map.map[i])
-	{
-		printf("%s\n", game->pure_map.map[i]);
-		i++;
-	}
 	game->img_w.img = mlx_new_image(game->mlx.mlx, WIDTH, HEIGHT);
 	game->img_w.addr = mlx_get_data_addr(game->img_w.img, &game->img_w.bpp,
 			&game->img_w.line_length, &game->img_w.endian);
 	draw_ceiling_and_floor(game);
-	 ray_casting(game);
+	ray_casting(game);
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, game->img_w.img, 0, 0);
 	mlx_destroy_image(game->mlx.mlx, game->img_w.img);
 }
@@ -96,7 +89,6 @@ void	resoures_initialisation(t_game *game)
 		printf("Error\nmlx_xpm_file_to_image failed\n");
 		exit(0);
 	}
-
 	game->txt[0].addr = mlx_get_data_addr(game->txt[0].img,
 			&game->txt[0].bpp, &game->txt[0].line_length,
 			&game->txt[0].endian);
@@ -129,8 +121,6 @@ void set_position(t_game *game)
 {
 	game->pos_y = game->map.player.x +0.5f;
 	game->pos_x = game->map.player.y +0.5f;
-	printf("game->pos_x = %f\n", game->pos_x);
-	printf("game->pos_y = %f\n", game->pos_y);
 		if (game->map.player.direction == 'N')
 		game->pos_y -= 0.2f;
 	else if (game->map.player.direction == 'S')
@@ -147,8 +137,6 @@ void	start_game(t_game *game)
 	game->color_ceiling = game->map.texture.C.R << 16 | game->map.texture.C.G << 8 | game->map.texture.C.B;
 	game->color_floor = game->map.texture.F.R << 16 | game->map.texture.F.G << 8 | game->map.texture.F.B;
 	set_position(game);
-	printf("pos_x = %f\n", game->pos_x);
-	printf("pos_y = %f\n", game->pos_y);
 	game->mlx.mlx = mlx_init();
 	if (!game->mlx.mlx)
 	{
@@ -161,6 +149,4 @@ void	start_game(t_game *game)
 	mlx_hook(game->mlx.win, ON_KEYDOWN, KeyPressMask, key, game);
 	mlx_hook(game->mlx.win, ON_DESTROY, NoEventMask, destroy_exit, game);
 	mlx_loop(game->mlx.mlx);
-
-
 }
