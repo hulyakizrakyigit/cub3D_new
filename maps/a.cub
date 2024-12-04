@@ -1,0 +1,21 @@
+
+
+NO ./resources/colorstone.xpm
+SO ./resources/bluestone.xpm
+WE ./resources/purplestone.xpm
+EA ./resources/redbrick.xpm
+
+
+F 2,255,100
+C 255,225,255
+
+
+111111111111
+10S000000001
+100000000001
+100000000101
+100001000001
+100100000001
+100000000001
+111111111111
+
