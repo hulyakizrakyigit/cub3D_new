@@ -1,6 +1,6 @@
 #include "cub3D.h"
 
-t_err perr(const char *func, const char *msg)
+t_err	perr(const char *func, const char *msg)
 {
 	write(2, "Error\n", 6);
 	if (msg)

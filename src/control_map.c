@@ -1,115 +1,70 @@
 #include "cub3D.h"
 
-t_err is_map_valid(char **map)
-{
-    int i;
-	int j;
 
-	i = 0;
-    while (map[i])
-    {
-	j = 0;
-		while (map[i][j])
+t_err	map_control_centrals(t_map *map)
+{
+	int		i;
+	char	*line;
+	t_err	err;
+
+	i = map->map_start + 1;
+	while (i <= map->map_end)
+	{
+		while (map->map[i])
 		{
-		if (map[i][j] == '1' || map[i][j] == '0' || map[i][j] == 'N')
-			return (perr(__func__, "invalid map, map count is not one"));
-		j++;
-		}
-	i++;
-    }
-    return (OK);
-}
-
-t_err validate_map(char **map)
-{
-    int start_x;
-	int start_y;
-	int i;
-	int j;
-	t_err err;
-
-	start_x = -1;
-	start_y = -1;
-	i = 0;
-
-	while (map[i] != NULL && start_x == -1)
-    {
-	j = 0;
-	while (map[i][j] != '\0')
-	{
-	if (map[i][j] == '1')
-	{
-		start_y = i;
-		start_x = j;
-			break;
-	}
-	j++;
-	}
-	i++;
-}
-    if (start_x != -1 && start_y != -1)
-        flood_fill(map, start_x, start_y);
-	err = is_map_valid(map);
-	if (err != OK)
-		return (perr(__func__, "is_map_valid failed"));
-    return (OK);
-}
-
-t_err map_control_part(t_map *map)
-{
-	int	i;
-	int	j;
-	char p;
-
-	i = 0;
-	p = map->player.direction;
-	while (map->map_H[i])
-	{
-		j = 0;
-		while (map->map_H[i][j])
-		{
-			if (map->map_H[i][j] == 'H')
+			line = ft_strtrim(map->map[i], "\n\v\t\r ");
+			if (((ft_strlen(line) >= 1)) && line[0] == '0' && (line[0] != '1' || line[ft_strlen(line) - 1] != '1'))
 			{
-				if ((map->map_H[i][j + 1] && (map->map_H[i][j + 1] == '0' || map->map_H[i][j + 1] == p)) ||
-				(j != 0 && map->map_H[i][j - 1] && (map->map_H[i][j - 1] == '0' || map->map_H[i][j - 1] == p)) ||
-				(map->map_H[i + 1] && (map->map_H[i + 1][j] == '0' || map->map_H[i + 1][j] == p)) ||
-				(i != 0 && map->map_H[i - 1] && (map->map_H[i - 1][j] == '0' || map->map_H[i - 1][j] == p)))
-					return (perr(__func__, "Invalid map, surrounded by walls(space and 0)"));
+				return (free(line), perr(__func__, "Invalid map, surrounded by walls3"));
 			}
-		j++;
+			if (ft_strlen(line) > 1)
+			{
+				err = map_control_centrals_items(map, line, i);
+				if (err != OK || map->player_count > 1)
+					return (free(line), perr(__func__, "Invalid map(undefined item) or player count"));
+			}
+			i++;
 		}
-	i++;
 	}
-	return (OK);
+	return (free(line), OK);
 }
 
-t_err	map_control(t_map *map)
+t_err map_control_boundaries(t_map *map)
 {
-	int i;
-	char *line;
-	t_err err;
+    int     i;
+    char    *line;
 
-	i = 0;
-	line = malloc(sizeof(char) * (map->map_width + 1));
-	if (!line)
-		return (perr(__func__, "Memory allocation failed"));
-	while (is_empty_line(map->map[i]) && ft_strlen(map->map[i]) == 1 && i < map->map_len)
-		i++;
-	map->map_start = i;
-	line = ft_strtrim(map->map[map->map_start], "\n\v\t\r ");
-	if (!line || !all_chars_are(line))
-		return (free(line), perr(__func__, "Invalid map, surrounded by walls1"));
-	free(line);
-	i = map->map_len - map->row - 1;
-	while (i >= 0 && map->map[i] && is_empty_line(map->map[i]) && ft_strlen(map->map[i]) == 1)
-		i--;
-	map->map_end = i;
-	line = ft_strtrim(map->map[map->map_end], "\n\v\t\r ");
-	if (!line || !all_chars_are(line))
-		return (free(line), perr(__func__, "Invalid map, surrounded by walls2"));
-	free(line);
-	err = map_control_centrals(map);
-	if (err != OK)
-		return (perr(__func__, "map_control_centrals failed"));
-	return (OK);
+    i = 0;
+    line = malloc(sizeof(char) * (map->map_width + 1));
+    if (!line)
+        return (perr(__func__, "Memory allocation failed"));
+    while (is_empty_line(map->map[i]) && ft_strlen(map->map[i]) == 1 && i < map->map_len)
+        i++;
+    map->map_start = i;
+    line = ft_strtrim(map->map[map->map_start], "\n\v\t\r ");
+    if (!line || !all_chars_are(line))
+        return (free(line), perr(__func__, "Invalid map, surrounded by walls1"));
+    free(line);
+    i = map->map_len - map->row - 1;
+    while (i >= 0 && map->map[i] && is_empty_line(map->map[i]) && ft_strlen(map->map[i]) == 1)
+        i--;
+    map->map_end = i;
+    line = ft_strtrim(map->map[map->map_end], "\n\v\t\r ");
+    if (!line || !all_chars_are(line))
+        return (free(line), perr(__func__, "Invalid map, surrounded by walls2"));
+    free(line);
+	return OK;
+}
+
+t_err map_control(t_map *map)
+{
+    t_err err;
+
+    err = map_control_boundaries(map);
+    if (err != OK)
+        return err;
+    err = map_control_centrals(map);
+    if (err != OK)
+        return (perr(__func__, "map_control_centrals failed"));
+	return OK;
 }

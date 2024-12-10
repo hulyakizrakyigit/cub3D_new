@@ -3,9 +3,7 @@
 t_err	control_texture_dir(t_texture *texture)
 {
 	if (texture->NO.count != 1)
-	{
-	return (perr(__func__, "Invalid texture NO count."));
-	}
+		return (perr(__func__, "Invalid texture NO count."));
 	if (texture->SO.count != 1)
 		return (perr(__func__, "Invalid texture SO count."));
 	if (texture->WE.count != 1)
@@ -17,10 +15,10 @@ t_err	control_texture_dir(t_texture *texture)
 
 t_err	set_texture(char *line, t_map *map)
 {
-	if (!ft_strncmp(line, "NO ", 3) || !ft_strncmp(line, "SO ", 3) || !ft_strncmp(line, "WE ", 3) || !ft_strncmp(line, "EA ", 3))
-	{
+	if (!ft_strncmp(line, "NO ", 3)
+		|| !ft_strncmp(line, "SO ", 3)
+		|| !ft_strncmp(line, "WE ", 3) || !ft_strncmp(line, "EA ", 3))
 		set_texture_dir(line, map);
-	}
 	if (!ft_strncmp(line, "F ", 2))
 	{
 		if (!check_texture_color(line, map))
@@ -35,42 +33,35 @@ t_err	set_texture(char *line, t_map *map)
 		set_texture_color_C(&map->texture);
 		map->row++;
 	}
-
 	return (OK);
 }
-void	set_texture_dir(char *line,  t_map *map)
+void set_texture_for_direction(char *line, t_map *map, t_img *texture)
 {
-	if (!line)
-		return ;
-	if (ft_strncmp(line, "NO ", 3) == 0)
-	{
-		map->texture.NO.path = ft_strtrim(line + 3, "\t\v\f\r\n ");
-		map->texture.NO.count++;
-		map->row++;
-	}
-	else if (ft_strncmp(line, "SO ", 3) == 0)
-	{
-		map->texture.SO.path = ft_strtrim(line + 3, "\t\v\f\r\n ");
-		map->texture.SO.count++;
-		map->row++;
-	}
-	else if (ft_strncmp(line, "WE ", 3) == 0)
-	{
-		map->texture.WE.path = ft_strtrim(line + 3, "\t\v\f\r\n ");
-		map->texture.WE.count++;
-		map->row++;
-	}
-	else if (ft_strncmp(line, "EA ", 3) == 0)
-	{
-		map->texture.EA.path = ft_strtrim(line + 3, "\t\v\f\r\n ");
-		map->texture.EA.count++;
-		map->row++;
-	}
+    if (!line || !texture)
+        return;
+    texture->path = ft_strtrim(line + 3, "\t\v\f\r\n ");
+    texture->count++;
+    map->row++;
+}
+
+
+void set_texture_dir(char *line, t_map *map)
+{
+    if (!line)
+        return ;
+    if (ft_strncmp(line, "NO ", 3) == 0)
+		set_texture_for_direction(line, map, &map->texture.NO);
+    else if (ft_strncmp(line, "SO ", 3) == 0)
+		set_texture_for_direction(line, map, &map->texture.SO);
+    else if (ft_strncmp(line, "WE ", 3) == 0)
+		set_texture_for_direction(line, map, &map->texture.WE);
+    else if (ft_strncmp(line, "EA ", 3) == 0)
+        set_texture_for_direction(line, map, &map->texture.EA);
 }
 
 void	set_texture_color_F(t_texture *texture)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (texture->F.rgb_str_arr[i])
@@ -85,9 +76,10 @@ void	set_texture_color_F(t_texture *texture)
 	}
 	texture->F.count++;
 }
+
 void	set_texture_color_C(t_texture *texture)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (texture->C.rgb_str_arr[i])
