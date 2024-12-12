@@ -35,7 +35,7 @@ t_err allocate_map_H(t_map *map)
     {
         map->map_H[i] = malloc(sizeof(char) * (map->map_width + 1));
         if (!map->map_H[i])
-            return (perr(__func__, "malloc failed(map_H row)"));
+            return (strr_arr_dispose(map->map_H), perr(__func__, "malloc failed(map_H row)"));
         ft_memset(map->map_H[i], 'H', map->map_width);
         map->map_H[i][map->map_width] = '\0';
         i++;
@@ -53,5 +53,8 @@ t_err map_H(t_map *map)
     err = allocate_map_H(map);
     if (err != OK)
         return err;
-    return map_H_fill(map);
+    err = map_H_fill(map);
+    if (err != OK)
+        strr_arr_dispose(map->map_H);
+    return (OK);
 }

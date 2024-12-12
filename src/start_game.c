@@ -62,6 +62,12 @@ void	start_game(t_game *game)
 	}
 	resoures_initialisation(game);
 	game->mlx.win = mlx_new_window(game->mlx.mlx, WIDTH, HEIGHT, "cub3D");
+	 if (!game->mlx.win)
+    {
+        printf("Error\nmlx window creation failed\n");
+        free(game->mlx.mlx);
+        exit(0);
+    }
 	draw(game);
 	mlx_hook(game->mlx.win, ON_KEYDOWN, KeyPressMask, key, game);
 	mlx_hook(game->mlx.win, ON_DESTROY, NoEventMask, destroy_exit, game);

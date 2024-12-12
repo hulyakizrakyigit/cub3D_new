@@ -13,6 +13,8 @@ t_err	map_control_centrals(t_map *map)
 		while (map->map[i])
 		{
 			line = ft_strtrim(map->map[i], "\n\v\t\r ");
+            if (!line)
+                return (perr(__func__, "ft_strtrim failed"));
 			if (((ft_strlen(line) >= 1)) && line[0] == '0' && (line[0] != '1' || line[ft_strlen(line) - 1] != '1'))
 			{
 				return (free(line), perr(__func__, "Invalid map, surrounded by walls3"));
@@ -23,10 +25,11 @@ t_err	map_control_centrals(t_map *map)
 				if (err != OK || map->player_count > 1)
 					return (free(line), perr(__func__, "Invalid map(undefined item) or player count"));
 			}
+            free(line);
 			i++;
 		}
 	}
-	return (free(line), OK);
+	return (OK);
 }
 
 t_err map_control_boundaries(t_map *map)
@@ -37,7 +40,7 @@ t_err map_control_boundaries(t_map *map)
     i = 0;
     line = malloc(sizeof(char) * (map->map_width + 1));
     if (!line)
-        return (perr(__func__, "Memory allocation failed"));
+        return (free(line), perr(__func__, "Memory allocation failed"));
     while (is_empty_line(map->map[i]) && ft_strlen(map->map[i]) == 1 && i < map->map_len)
         i++;
     map->map_start = i;

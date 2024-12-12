@@ -38,10 +38,12 @@ t_err	map_path_control(char *path)
 
 t_err prepare_map_init_part2(t_map *map, int fd)
 {
-    int i = 0;
-    int j = 0;
+    int i;
+    int j;
     char *line;
 
+    i = 0;
+    j = 0;
     while (1)
     {
         line = get_next_line(fd);
@@ -51,7 +53,11 @@ t_err prepare_map_init_part2(t_map *map, int fd)
         {
             map->map[j] = ft_strdup(line);
             if (!map->map[j])
+            {
+                free(line);
+                close(fd);
                 return (strr_arr_dispose(map->map), perr(__func__, "ft_strdup failed"));
+            }
             j++;
         }
         i++;
@@ -72,7 +78,10 @@ t_err prepare_map_init_part1(t_map *map, char *path, int *fd)
 
     map->map = malloc(sizeof(char *) * (map->map_len - map->row + 1));
     if (!map->map)
+    {
+        close(*fd);
         return (perr(__func__, "malloc failed"));
+    }
 
     return OK;
 }
@@ -84,9 +93,18 @@ t_err prepare_map_init(t_map *map, char *path)
 
     err = prepare_map_init_part1(map, path, &fd);
     if (err != OK)
+    {
+        free(map);
         return err;
+    }
 
     err = prepare_map_init_part2(map, fd);
+    if (err != OK)
+    {
+        strr_arr_dispose(map->map);
+        free(map);
+    }
+    
     return err;
 }
 
