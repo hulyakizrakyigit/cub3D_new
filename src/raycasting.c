@@ -18,6 +18,7 @@ int	sign(float f)
 			return (1);
 	}
 }
+
 float	save_color(t_game *game, float dist, int color_idx, float w)
 {
 	game->txt_idx = color_idx;
@@ -58,7 +59,6 @@ void	ray_initial_calculations(t_game *game, t_ray *r, float v)
 	r->sx = sign(r->dx);
 	r->sy = sign(r->dy);
 	r->vert_x = (int) game->pos_x;
-	
 	if (r->sx > 0)
 		r->vert_x += 1.0f;
 	r->hor_y = (int) game->pos_y;

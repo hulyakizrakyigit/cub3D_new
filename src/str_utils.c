@@ -1,6 +1,6 @@
 #include "cub3D.h"
 
-bool	strevery(int (*func)(int c),  const char *str)
+bool	strevery(int (*func)(int c), const char *str)
 {
 	int	i;
 
@@ -18,16 +18,16 @@ bool	strevery(int (*func)(int c),  const char *str)
 
 bool	is_empty_line(char *line)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] == ' ' || line[i] == '\t' || line[i] == '\v' || line[i] == '\f' || line[i] == '\r' || line[i] == '\n')
+		if (line[i] == ' ' || line[i] == '\t'
+			|| line[i] == '\v' || line[i] == '\f'
+			|| line[i] == '\r' || line[i] == '\n')
 			return (1);
 		i++;
 	}
 	return (0);
 }
-
-

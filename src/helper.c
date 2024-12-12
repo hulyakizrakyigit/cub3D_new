@@ -1,6 +1,6 @@
 #include "cub3D.h"
 
-void flood_fill(char **map, int x, int y)
+void    flood_fill(char **map, int x, int y)
 {
     if (x < 0 || y < 0 || map[y] == NULL || map[y][x] == '\0')
         return;
@@ -10,18 +10,18 @@ void flood_fill(char **map, int x, int y)
         map[y][x] = 'K';
     else
         return;
-
     flood_fill(map, x + 1, y);
     flood_fill(map, x - 1, y);
     flood_fill(map, x, y + 1);
     flood_fill(map, x, y - 1);
 }
 
-bool is_one_or_space(char c)
+bool    is_one_or_space(char c)
 {
 	return (c == '1' || c == ' ');
 }
-bool all_chars_are(char *str)
+
+bool    all_chars_are(char *str)
 {
 	while (*str)
 	{
@@ -31,3 +31,5 @@ bool all_chars_are(char *str)
 	}
 	return (true);
 }
+
+
