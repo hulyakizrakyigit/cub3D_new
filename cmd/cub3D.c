@@ -2,16 +2,10 @@
 
 void    initialize_and_run_game(t_game *game)
 {
-    int i;
 
-    i = 0;
     initialize_pure_map(game);
     set_player(game);
-    while (game->pure_map.map[i])
-    {
-        printf("%s\n", game->pure_map.map[i]);
-        i++;
-    }
+
     start_game(game);
 }
 
@@ -72,3 +66,9 @@ int	main(int ac, char **av)
     initialize_and_run_game(game);
     return (dispose(game), 0);
 }
+
+__attribute ((destructor)) void zombieHordeDestructor()
+{
+	system("leaks cub3D");
+}
+

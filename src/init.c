@@ -5,21 +5,21 @@
 #include <ctype.h>
 #include <stdbool.h>
 
-t_err	game_init(t_game *game, char *path)
-{
-	t_err	err;
+// t_err	game_init(t_game *game, char *path)
+// {
+// 	t_err	err;
 
-	err = map_path_control(path);
-	if (err != OK)
-		return (perr(__func__, "map_path_control failed"));
-	game->map.path = ft_strdup(path);
-	if (!game->map.path)
-		return (perr(__func__, "ft_strdup failed"));
-	err = texture_init(&game->map, path);
-	if (err != OK)
-		return (perr(__func__, "texture_init failed"));
-	return (OK);
-}
+// 	err = map_path_control(path);
+// 	if (err != OK)
+// 		return (perr(__func__, "map_path_control failed"));
+// 	game->map.path = ft_strdup(path);
+// 	if (!game->map.path)
+// 		return (perr(__func__, "ft_strdup failed"));
+// 	err = texture_init(game, &game->map, path);
+// 	if (err != OK)
+// 		return (perr(__func__, "texture_init failed"));
+// 	return (OK);
+// }
 
 t_err	map_path_control(char *path)
 {
@@ -71,7 +71,7 @@ t_err prepare_map_init_part1(t_map *map, char *path, int *fd)
 {
     if (!map || !path)
         return (perr(__func__, "unexpected error"));
-    
+
     *fd = open(path, O_RDONLY);
     if (*fd < 0)
         return (perr(__func__, "open failed"));
@@ -104,7 +104,7 @@ t_err prepare_map_init(t_map *map, char *path)
         strr_arr_dispose(map->map);
         free(map);
     }
-    
+
     return err;
 }
 

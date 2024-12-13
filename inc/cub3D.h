@@ -8,7 +8,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdbool.h>
-# include <math.h> 
+# include <math.h>
 
 # define WIDTH 640
 # define HEIGHT 480
@@ -26,7 +26,7 @@ enum
 	ON_DESTROY = 17
 };
 
-enum 
+enum
 {
 	NoEventMask = 0L,
 	KeyPressMask = 1L<<0,

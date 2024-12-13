@@ -43,22 +43,52 @@ void dispose(t_game *game)
     }
     if (game->map.texture.F.rgb_str_arr)
     {
-        for (int i = 0; i < 3; i++)
+        int i = 0;
+        while (game->map.texture.F.rgb_str_arr[i])
         {
             free(game->map.texture.F.rgb_str_arr[i]);
+            i++;
         }
         free(game->map.texture.F.rgb_str_arr);
         game->map.texture.F.rgb_str_arr = NULL;
     }
     if (game->map.texture.C.rgb_str_arr)
     {
-        for (int i = 0; i < 3; i++)
+        int i = 0;
+        while (game->map.texture.C.rgb_str_arr[i])
         {
             free(game->map.texture.C.rgb_str_arr[i]);
+            i++;
         }
         free(game->map.texture.C.rgb_str_arr);
         game->map.texture.C.rgb_str_arr = NULL;
     }
+    if(game)
+    {
+        free(game);
+        game = NULL;
+    }
+    // if (game->map.texture.NO.path)
+    // {
+    //     free(game->map.texture.NO.path);
+    //     game->map.texture.NO.path = NULL;
+    // }
+    // if (game->map.texture.SO.path)
+    // {
+    //     free(game->map.texture.SO.path);
+    //     game->map.texture.SO.path = NULL;
+    // }
+    // if (game->map.texture.WE.path)
+    // {
+    //     free(game->map.texture.WE.path);
+    //     game->map.texture.WE.path = NULL;
+    // }
+    // if (game->map.texture.EA.path)
+    // {
+    //     free(game->map.texture.EA.path);
+    //     game->map.texture.EA.path = NULL;
+    // }
+
 }
 
 

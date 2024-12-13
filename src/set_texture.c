@@ -22,7 +22,9 @@ t_err	set_texture(char *line, t_map *map)
 	if (!ft_strncmp(line, "F ", 2))
 	{
 		if (!check_texture_color(line, map))
+		{
 			return (ERR);
+		}
 		set_texture_color_F(&map->texture);
 		map->row++;
 	}

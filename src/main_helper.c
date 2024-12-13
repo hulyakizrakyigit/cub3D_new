@@ -19,7 +19,6 @@ void	set_player(t_game *game)
 			c = 'E';
 		if (c != 0)
 		{
-			printf("c : %c\n", c);
 			game->map.player.x = i;
 			game->map.player.y = ft_strchr(game->pure_map.map[i], c) - game->pure_map.map[i];
 			game->map.player.direction = c;
