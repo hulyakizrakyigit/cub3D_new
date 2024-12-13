@@ -284,5 +284,7 @@ void	ray_casting(t_game *game);
 void load_textures(t_game *game);
 void load_textures_addresses(t_game *game);
 
+char	*ft_strtrim_a(const char *s1, const char *set);
+
 
 #endif

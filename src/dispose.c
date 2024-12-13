@@ -31,6 +31,11 @@ void dispose(t_game *game)
         strr_arr_dispose(game->map.map);
         game->map.map = NULL;
     }
+    if (game->map.map_H)
+    {
+        strr_arr_dispose(game->map.map_H);
+        game->map.map_H = NULL;
+    }
     if (game->mlx.win)
     {
         mlx_destroy_window(game->mlx.mlx, game->mlx.win);

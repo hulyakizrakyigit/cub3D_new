@@ -1,6 +1,5 @@
 #include "cub3D.h"
 
-
 t_err	map_control_centrals(t_map *map)
 {
 	int		i;
@@ -44,6 +43,7 @@ t_err map_control_boundaries(t_map *map)
     while (is_empty_line(map->map[i]) && ft_strlen(map->map[i]) == 1 && i < map->map_len)
         i++;
     map->map_start = i;
+    free(line);
     line = ft_strtrim(map->map[map->map_start], "\n\v\t\r ");
     if (!line || !all_chars_are(line))
         return (free(line), perr(__func__, "Invalid map, surrounded by walls1"));

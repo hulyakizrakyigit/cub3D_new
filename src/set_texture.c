@@ -41,7 +41,7 @@ void set_texture_for_direction(char *line, t_map *map, t_img *texture)
 {
     if (!line || !texture)
         return;
-    texture->path = ft_strtrim(line + 3, "\t\v\f\r\n ");
+    texture->path = ft_strtrim_a(line + 3, "\t\v\f\r\n ");
     texture->count++;
     map->row++;
 }

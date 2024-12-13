@@ -71,26 +71,7 @@ t_err	control_texture_color(t_color *color)
 		return (perr(__func__, "Invalid color count."));
 	return (OK);
 }
-char	*ft_strtrim_a(const char *s1, const char *set)
-{
-	size_t	start;
-	size_t	end;
-	char	*trimmed_str;
 
-	if (!s1 || !set)
-		return (NULL);
-	start = 0;
-	while (s1[start] && ft_strchr(set, s1[start]))
-		start++;
-	end = ft_strlen(s1);
-	while (end > start && ft_strchr(set, s1[end - 1]))
-		end--;
-	trimmed_str = (char *)malloc(sizeof(char) * (end - start + 1));
-	if (!trimmed_str)
-		return (NULL);
-	ft_strlcpy(trimmed_str, s1 + start, end - start + 1);
-	return (trimmed_str);
-}
 t_err	is_invalid_color(char **rgb_str_arr)
 {
 	int		i;
