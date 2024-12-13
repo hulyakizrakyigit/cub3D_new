@@ -5,7 +5,6 @@ void    initialize_and_run_game(t_game *game)
 
     initialize_pure_map(game);
     set_player(game);
-
     start_game(game);
 }
 

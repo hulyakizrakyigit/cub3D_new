@@ -16,6 +16,27 @@ void	strr_arr_dispose(char **arr)
 
 void dispose(t_game *game)
 {
+    if (game->map.texture.NO.path)
+    {
+        free(game->map.texture.NO.path);
+        game->map.texture.NO.path = NULL;
+    }
+    if (game->map.texture.SO.path)
+    {
+        free(game->map.texture.SO.path);
+        game->map.texture.SO.path = NULL;
+    }
+    if (game->map.texture.WE.path)
+    {
+        free(game->map.texture.WE.path);
+        game->map.texture.WE.path = NULL;
+    }
+    if (game->map.texture.EA.path)
+    {
+        free(game->map.texture.EA.path);
+        game->map.texture.EA.path = NULL;
+    }
+
     if (game->last_map.map_H)
     {
         strr_arr_dispose(game->last_map.map_H);
@@ -73,27 +94,6 @@ void dispose(t_game *game)
         free(game);
         game = NULL;
     }
-    // if (game->map.texture.NO.path)
-    // {
-    //     free(game->map.texture.NO.path);
-    //     game->map.texture.NO.path = NULL;
-    // }
-    // if (game->map.texture.SO.path)
-    // {
-    //     free(game->map.texture.SO.path);
-    //     game->map.texture.SO.path = NULL;
-    // }
-    // if (game->map.texture.WE.path)
-    // {
-    //     free(game->map.texture.WE.path);
-    //     game->map.texture.WE.path = NULL;
-    // }
-    // if (game->map.texture.EA.path)
-    // {
-    //     free(game->map.texture.EA.path);
-    //     game->map.texture.EA.path = NULL;
-    // }
-
 }
 
 
