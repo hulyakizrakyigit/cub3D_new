@@ -1,25 +1,9 @@
 #include "cub3D.h"
 #include "libft.h"
-#include <fcntl.h>
-#include <string.h>
 #include <ctype.h>
+#include <fcntl.h>
 #include <stdbool.h>
-
-// t_err	game_init(t_game *game, char *path)
-// {
-// 	t_err	err;
-
-// 	err = map_path_control(path);
-// 	if (err != OK)
-// 		return (perr(__func__, "map_path_control failed"));
-// 	game->map.path = ft_strdup(path);
-// 	if (!game->map.path)
-// 		return (perr(__func__, "ft_strdup failed"));
-// 	err = texture_init(game, &game->map, path);
-// 	if (err != OK)
-// 		return (perr(__func__, "texture_init failed"));
-// 	return (OK);
-// }
+#include <string.h>
 
 t_err	map_path_control(char *path)
 {
@@ -36,75 +20,84 @@ t_err	map_path_control(char *path)
 	return (OK);
 }
 
-t_err prepare_map_init_part2(t_map *map, int fd)
+t_err	process_line(t_map *map, int fd, int *indices, bool *eof)
 {
-    int i;
-    int j;
-    char *line;
+	char	*line;
 
-    i = 0;
-    j = 0;
-    while (1)
-    {
-        line = get_next_line(fd);
-        if (!line)
-            break;
-        if (i >= ((map->row)))
-        {
-            map->map[j] = ft_strdup(line);
-            if (!map->map[j])
-            {
-                free(line);
-                close(fd);
-                return (strr_arr_dispose(map->map), perr(__func__, "ft_strdup failed"));
-            }
-            j++;
-        }
-        i++;
-        free(line);
-    }
-    map->map[j] = NULL;
-    return (close(fd), OK);
+	line = get_next_line(fd);
+	if (!line)
+	{
+		*eof = true;
+		return (OK);
+	}
+	if (indices[0] >= (map->row))
+	{
+		map->map[indices[1]] = ft_strdup(line);
+		if (!map->map[indices[1]])
+		{
+			free(line);
+			close(fd);
+			return (strr_arr_dispose(map->map), perr(__func__,
+					"ft_strdup failed"));
+		}
+		indices[1]++;
+	}
+	indices[0]++;
+	free(line);
+	return (OK);
 }
 
-t_err prepare_map_init_part1(t_map *map, char *path, int *fd)
+t_err	prepare_map_init_part2(t_map *map, int fd)
 {
-    if (!map || !path)
-        return (perr(__func__, "unexpected error"));
+	int		indices[2];
+	t_err	err;
+	bool	eof;
 
-    *fd = open(path, O_RDONLY);
-    if (*fd < 0)
-        return (perr(__func__, "open failed"));
-
-    map->map = malloc(sizeof(char *) * (map->map_len - map->row + 1));
-    if (!map->map)
-    {
-        close(*fd);
-        return (perr(__func__, "malloc failed"));
-    }
-
-    return OK;
+	indices[0] = 0;
+	indices[1] = 0;
+	eof = false;
+	while (!eof)
+	{
+		err = process_line(map, fd, indices, &eof);
+		if (err != OK)
+			return (err);
+	}
+	map->map[indices[1]] = NULL;
+	return (close(fd), OK);
 }
 
-t_err prepare_map_init(t_map *map, char *path)
+t_err	prepare_map_init_part1(t_map *map, char *path, int *fd)
 {
-    int fd;
-    t_err err;
-
-    err = prepare_map_init_part1(map, path, &fd);
-    if (err != OK)
-    {
-        free(map);
-        return err;
-    }
-
-    err = prepare_map_init_part2(map, fd);
-    if (err != OK)
-    {
-        strr_arr_dispose(map->map);
-        free(map);
-    }
-
-    return err;
+	if (!map || !path)
+		return (perr(__func__, "unexpected error"));
+	*fd = open(path, O_RDONLY);
+	if (*fd < 0)
+		return (perr(__func__, "open failed"));
+	map->map = malloc(sizeof(char *) * (map->map_len - map->row + 1));
+	if (!map->map)
+	{
+		close(*fd);
+		return (perr(__func__, "malloc failed"));
+	}
+	return (OK);
 }
 
+t_err	prepare_map_init(t_map *map, char *path)
+{
+	int		fd;
+	t_err	err;
+
+	err = prepare_map_init_part1(map, path, &fd);
+	if (err != OK)
+	{
+		free(map);
+		return (err);
+	}
+	err = prepare_map_init_part2(map, fd);
+	if (err != OK)
+	{
+		strr_arr_dispose(map->map);
+		free(map);
+	}
+	return (err);
+}

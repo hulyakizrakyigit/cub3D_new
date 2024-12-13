@@ -1,156 +1,66 @@
 #include "cub3D.h"
 
-void	strr_arr_dispose(char **arr)
+void	dispose_rgb_arrays(t_game *game)
 {
 	int	i;
 
-	i = 0;
-	while (arr[i])
+	if (game->map.texture.f.rgb_str_arr)
 	{
-		free(arr[i]);
-		i++;
+		i = 0;
+		while (game->map.texture.f.rgb_str_arr[i])
+		{
+			free(game->map.texture.f.rgb_str_arr[i]);
+			i++;
+		}
+		free(game->map.texture.f.rgb_str_arr);
+		game->map.texture.f.rgb_str_arr = NULL;
 	}
-	free(arr);
+	if (game->map.texture.c.rgb_str_arr)
+	{
+		i = 0;
+		while (game->map.texture.c.rgb_str_arr[i])
+		{
+			free(game->map.texture.c.rgb_str_arr[i]);
+			i++;
+		}
+		free(game->map.texture.c.rgb_str_arr);
+		game->map.texture.c.rgb_str_arr = NULL;
+	}
 }
 
-
-void dispose(t_game *game)
+void	dispose_texture_paths(t_game *game)
 {
-    if (game->map.texture.NO.path)
-    {
-        free(game->map.texture.NO.path);
-        game->map.texture.NO.path = NULL;
-    }
-    if (game->map.texture.SO.path)
-    {
-        free(game->map.texture.SO.path);
-        game->map.texture.SO.path = NULL;
-    }
-    if (game->map.texture.WE.path)
-    {
-        free(game->map.texture.WE.path);
-        game->map.texture.WE.path = NULL;
-    }
-    if (game->map.texture.EA.path)
-    {
-        free(game->map.texture.EA.path);
-        game->map.texture.EA.path = NULL;
-    }
-
-    if (game->last_map.map_H)
-    {
-        strr_arr_dispose(game->last_map.map_H);
-        game->last_map.map_H = NULL;
-    }
-    if (game->pure_map.map)
-    {
-        strr_arr_dispose(game->pure_map.map);
-        game->pure_map.map = NULL;
-    }
-    if (game->map.map)
-    {
-        strr_arr_dispose(game->map.map);
-        game->map.map = NULL;
-    }
-    if (game->map.map_H)
-    {
-        strr_arr_dispose(game->map.map_H);
-        game->map.map_H = NULL;
-    }
-    if (game->txt[0].img)
-    {
-        mlx_destroy_image(game->mlx.mlx, game->txt[0].img);
-        game->txt[0].img = NULL;
-    }
-    if (game->txt[1].img)
-    {
-        mlx_destroy_image(game->mlx.mlx, game->txt[1].img);
-        game->txt[1].img = NULL;
-    }
-    if (game->txt[2].img)
-    {
-        mlx_destroy_image(game->mlx.mlx, game->txt[2].img);
-        game->txt[2].img = NULL;
-    }
-    if (game->txt[3].img)
-    {
-        mlx_destroy_image(game->mlx.mlx, game->txt[3].img);
-        game->txt[3].img = NULL;
-    }
-
-    if (game->mlx.win)
-    {
-        mlx_destroy_window(game->mlx.mlx, game->mlx.win);
-        game->mlx.win = NULL;
-    }
-    if (game->map.texture.F.rgb_str_arr)
-    {
-        int i = 0;
-        while (game->map.texture.F.rgb_str_arr[i])
-        {
-            free(game->map.texture.F.rgb_str_arr[i]);
-            i++;
-        }
-        free(game->map.texture.F.rgb_str_arr);
-        game->map.texture.F.rgb_str_arr = NULL;
-    }
-    if (game->map.texture.C.rgb_str_arr)
-    {
-        int i = 0;
-        while (game->map.texture.C.rgb_str_arr[i])
-        {
-            free(game->map.texture.C.rgb_str_arr[i]);
-            i++;
-        }
-        free(game->map.texture.C.rgb_str_arr);
-        game->map.texture.C.rgb_str_arr = NULL;
-    }
-    if(game)
-    {
-        free(game);
-        game = NULL;
-    }
+	if (game->map.texture.no.path)
+	{
+		free(game->map.texture.no.path);
+		game->map.texture.no.path = NULL;
+	}
+	if (game->map.texture.so.path)
+	{
+		free(game->map.texture.so.path);
+		game->map.texture.so.path = NULL;
+	}
+	if (game->map.texture.we.path)
+	{
+		free(game->map.texture.we.path);
+		game->map.texture.we.path = NULL;
+	}
+	if (game->map.texture.ea.path)
+	{
+		free(game->map.texture.ea.path);
+		game->map.texture.ea.path = NULL;
+	}
 }
 
+void	dispose_textures(t_game *game)
+{
+	dispose_texture_paths(game);
+	dispose_rgb_arrays(game);
+}
 
-// void dispose(t_game *game)
-// {
-//     if (game->last_map.map_H)
-//     {
-//         strr_arr_dispose(game->last_map.map_H);
-//         game->last_map.map_H = NULL;
-//     }
-//     if (game->pure_map.map)
-//     {
-//         int i = 0;
-//         while (game->pure_map.map[i])
-//         {
-//             free(game->pure_map.map[i]);
-//             i++;
-//         }
-//         free(game->pure_map.map);
-//         game->pure_map.map = NULL;
-//     }
-//     if (game->map.map)
-//     {
-//         int i = 0;
-//         while (game->map.map[i])
-//         {
-//             free(game->map.map[i]);
-//             i++;
-//         }
-//         free(game->map.map);
-//         game->map.map = NULL;
-//     }
-//     if (game->mlx.win)
-//     {
-//         mlx_destroy_window(game->mlx.mlx, game->mlx.win);
-//         game->mlx.win = NULL;
-//     }
-//     if (game->mlx.mlx)
-//     {
-//         free(game->mlx.mlx);
-//         game->mlx.mlx = NULL;
-//     }
-// }
-
+void	dispose(t_game *game)
+{
+	dispose_textures(game);
+	dispose_maps(game);
+	dispose_general(game);
+}

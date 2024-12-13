@@ -11,7 +11,8 @@ SRCS				= $(SRC_DIR)/err.c $(SRC_DIR)/init.c $(SRC_DIR)/init_texture.c $(SRC_DIR
 						$(SRC_DIR)/control_map_items.c $(SRC_DIR)/control_map.c $(SRC_DIR)/helper.c $(SRC_DIR)/dispose.c \
 						$(SRC_DIR)/start_game.c $(SRC_DIR)/raycasting.c $(SRC_DIR)/key_hook.c \
 						$(SRC_DIR)/main_helper.c $(SRC_DIR)/init_texture_color.c $(SRC_DIR)/control_map2.c $(SRC_DIR)/map_h_fill.c \
-						$(SRC_DIR)/draw_and_ray_cast.c
+						$(SRC_DIR)/draw_and_ray_cast.c $(SRC_DIR)/dispose_helper.c $(SRC_DIR)/set_texture_color.c \
+						$(SRC_DIR)/game_utils.c $(SRC_DIR)/ray_utils.c
 
 
 
