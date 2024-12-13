@@ -57,15 +57,31 @@ void dispose(t_game *game)
         strr_arr_dispose(game->map.map_H);
         game->map.map_H = NULL;
     }
+    if (game->txt[0].img)
+    {
+        mlx_destroy_image(game->mlx.mlx, game->txt[0].img);
+        game->txt[0].img = NULL;
+    }
+    if (game->txt[1].img)
+    {
+        mlx_destroy_image(game->mlx.mlx, game->txt[1].img);
+        game->txt[1].img = NULL;
+    }
+    if (game->txt[2].img)
+    {
+        mlx_destroy_image(game->mlx.mlx, game->txt[2].img);
+        game->txt[2].img = NULL;
+    }
+    if (game->txt[3].img)
+    {
+        mlx_destroy_image(game->mlx.mlx, game->txt[3].img);
+        game->txt[3].img = NULL;
+    }
+
     if (game->mlx.win)
     {
         mlx_destroy_window(game->mlx.mlx, game->mlx.win);
         game->mlx.win = NULL;
-    }
-    if (game->mlx.mlx)
-    {
-        free(game->mlx.mlx);
-        game->mlx.mlx = NULL;
     }
     if (game->map.texture.F.rgb_str_arr)
     {
