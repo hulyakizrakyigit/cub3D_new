@@ -295,7 +295,7 @@ void			set_texture_dir(char *line, t_map *map);
 
 // start_game.c
 void			draw(t_game *game);
-void			resoures_initialisation(t_game *game);
+void			init_xpm(t_game *game);
 void			set_angle_view(t_game *game);
 void			set_position(t_game *game);
 void			start_game(t_game *game);

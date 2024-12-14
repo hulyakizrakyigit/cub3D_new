@@ -13,7 +13,7 @@ void	draw(t_game *game)
 	mlx_destroy_image(game->mlx.mlx, game->img_w.img);
 }
 
-void	resoures_initialisation(t_game *game)
+void	init_xpm(t_game *game)
 {
 	load_textures(game);
 	load_textures_addresses(game);
@@ -35,14 +35,14 @@ void	set_position(t_game *game)
 {
 	game->pos_y = game->map.player.x + 0.5f;
 	game->pos_x = game->map.player.y + 0.5f;
-	if (game->map.player.direction == 'N')
-		game->pos_y -= 0.2f;
-	else if (game->map.player.direction == 'S')
-		game->pos_y += 0.2f;
-	else if (game->map.player.direction == 'W')
-		game->pos_x -= 0.2f;
-	else if (game->map.player.direction == 'E')
-		game->pos_x += 0.2f;
+	// if (game->map.player.direction == 'N')
+	// 	game->pos_y -= 0.2f;
+	// else if (game->map.player.direction == 'S')
+	// 	game->pos_y += 0.2f;
+	// else if (game->map.player.direction == 'W')
+	// 	game->pos_x -= 0.2f;
+	// else if (game->map.player.direction == 'E')
+	// 	game->pos_x += 0.2f;
 	set_angle_view(game);
 }
 
@@ -59,7 +59,7 @@ void	start_game(t_game *game)
 		printf("Error\nmlx init failed\n");
 		exit(0);
 	}
-	resoures_initialisation(game);
+	init_xpm(game);
 	game->mlx.win = mlx_new_window(game->mlx.mlx, WIDTH, HEIGHT, "cub3D");
 	if (!game->mlx.win)
 	{

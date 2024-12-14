@@ -52,14 +52,14 @@ void	ray_casting(t_game *game)
 
 void	draw_ceiling_and_floor(t_game *game)
 {
-	unsigned int	*dst;
+	unsigned int	*pixel_ptr;
 	unsigned int	i;
 
-	dst = (unsigned int *) game->img_w.addr;
-	i = WIDTH * HEIGHT / 2 + 1;
+	pixel_ptr = (unsigned int *) game->img_w.addr;
+	i = WIDTH * HEIGHT / 2;
 	while (--i > 0)
-		*dst++ = game->color_ceiling;
-	i = WIDTH * HEIGHT / 2 + 1;
+		*pixel_ptr++ = game->color_ceiling;
+	i = WIDTH * HEIGHT / 2;
 	while (--i > 0)
-		*dst++ = game->color_floor;
+		*pixel_ptr++ = game->color_floor;
 }
