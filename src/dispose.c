@@ -1,39 +1,66 @@
 #include "cub3D.h"
 
-void	strr_arr_dispose(char **arr)
+void	dispose_rgb_arrays(t_game *game)
 {
-	int i;
+	int	i;
 
-	i = 0;
-	while (arr[i])
+	if (game->map.texture.f.rgb_str_arr)
 	{
-		free(arr[i]);
-		i++;
+		i = 0;
+		while (game->map.texture.f.rgb_str_arr[i])
+		{
+			free(game->map.texture.f.rgb_str_arr[i]);
+			i++;
+		}
+		free(game->map.texture.f.rgb_str_arr);
+		game->map.texture.f.rgb_str_arr = NULL;
 	}
-	free(arr);
+	if (game->map.texture.c.rgb_str_arr)
+	{
+		i = 0;
+		while (game->map.texture.c.rgb_str_arr[i])
+		{
+			free(game->map.texture.c.rgb_str_arr[i]);
+			i++;
+		}
+		free(game->map.texture.c.rgb_str_arr);
+		game->map.texture.c.rgb_str_arr = NULL;
+	}
+}
+
+void	dispose_texture_paths(t_game *game)
+{
+	if (game->map.texture.no.path)
+	{
+		free(game->map.texture.no.path);
+		game->map.texture.no.path = NULL;
+	}
+	if (game->map.texture.so.path)
+	{
+		free(game->map.texture.so.path);
+		game->map.texture.so.path = NULL;
+	}
+	if (game->map.texture.we.path)
+	{
+		free(game->map.texture.we.path);
+		game->map.texture.we.path = NULL;
+	}
+	if (game->map.texture.ea.path)
+	{
+		free(game->map.texture.ea.path);
+		game->map.texture.ea.path = NULL;
+	}
+}
+
+void	dispose_textures(t_game *game)
+{
+	dispose_texture_paths(game);
+	dispose_rgb_arrays(game);
 }
 
 void	dispose(t_game *game)
 {
-	// if (game->map.map)
-	// 	strr_arr_dispose(game->map.map);
-	// if (game->map.map_H)
-	// 	strr_arr_dispose(game->map.map_H);
-	// if (game->map.texture.NO.path)
-	// 	free(game->map.texture.NO.path);
-	// if (game->map.texture.SO.path)
-	// 	free(game->map.texture.SO.path);
-	// if (game->map.texture.WE.path)
-	// 	free(game->map.texture.WE.path);
-	// if (game->map.texture.EA.path)
-	// 	free(game->map.texture.EA.path);
-	// if (game->map.texture.F.rgb_str)
-	// 	free(game->map.texture.F.rgb_str);
-	// if (game->map.texture.F.rgb_str_arr)
-	// 	strr_arr_dispose(game->map.texture.F.rgb_str_arr);
-	// if (game->map.texture.C.rgb_str)
-	// 	free(game->map.texture.C.rgb_str);
-	// if (game->map.texture.C.rgb_str_arr)
-	// 	strr_arr_dispose(game->map.texture.C.rgb_str_arr);
-	free(game);
+	dispose_textures(game);
+	dispose_maps(game);
+	dispose_general(game);
 }

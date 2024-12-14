@@ -18,6 +18,7 @@ int	sign(float f)
 			return (1);
 	}
 }
+
 float	save_color(t_game *game, float dist, int color_idx, float w)
 {
 	game->txt_idx = color_idx;
@@ -30,9 +31,9 @@ void	ray_next_step_calculation(t_game *game, t_ray *r)
 	if (r->sx != 0)
 	{
 		r->vert_y = game->pos_y + r->dy / r->dx * (r->vert_x - game->pos_x);
-		r->vert_dist = sqrt(pow(game->pos_x - r->vert_x, 2.0)
-				+ pow(game->pos_y - r->vert_y, 2.0));
-		r->vert_w = r->vert_y - (int) r->vert_y;
+		r->vert_dist = sqrt(pow(game->pos_x - r->vert_x, 2.0) + pow(game->pos_y
+					- r->vert_y, 2.0));
+		r->vert_w = r->vert_y - (int)r->vert_y;
 		if (r->sx > 0)
 			r->vert_w = 1 - r->vert_w;
 	}
@@ -41,9 +42,9 @@ void	ray_next_step_calculation(t_game *game, t_ray *r)
 	if (r->sy != 0)
 	{
 		r->hor_x = game->pos_x + r->dx / r->dy * (r->hor_y - game->pos_y);
-		r->hor_dist = sqrt(pow(game->pos_x - r->hor_x, 2.0)
-				+ pow(game->pos_y - r->hor_y, 2.0));
-		r->hor_w = r->hor_x - (int) r->hor_x;
+		r->hor_dist = sqrt(pow(game->pos_x - r->hor_x, 2.0) + pow(game->pos_y
+					- r->hor_y, 2.0));
+		r->hor_w = r->hor_x - (int)r->hor_x;
 		if (r->sy < 0)
 			r->hor_w = 1 - r->hor_w;
 	}
@@ -57,11 +58,10 @@ void	ray_initial_calculations(t_game *game, t_ray *r, float v)
 	r->dy = -sin(v);
 	r->sx = sign(r->dx);
 	r->sy = sign(r->dy);
-	r->vert_x = (int) game->pos_x;
-	
+	r->vert_x = (int)game->pos_x;
 	if (r->sx > 0)
 		r->vert_x += 1.0f;
-	r->hor_y = (int) game->pos_y;
+	r->hor_y = (int)game->pos_y;
 	if (r->sy > 0)
 		r->hor_y += 1.0f;
 }
