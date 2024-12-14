@@ -79,18 +79,18 @@ typedef enum e_err
 
 typedef struct s_ray
 {
-	float		dx;
-	float		dy;
-	int			sx;
-	int			sy;
-	float		hor_x;
-	float		hor_y;
-	float		vert_x;
-	float		vert_y;
-	float		vert_dist;
-	float		hor_dist;
-	float		vert_w;
-	float		hor_w;
+	float		delta_x;
+	float		delta_y;
+	int			step_x;
+	int			step_y;
+	float		horizontal_x;
+	float		horizontal_y;
+	float		vertical_x;
+	float		vertical_y;
+	float		vertical_distance;
+	float		horizontal_distance;
+	float		vertical_weight;
+	float		horizontal_weight;
 }				t_ray;
 
 typedef struct s_img
@@ -256,7 +256,7 @@ t_err			prepare_map_init_part1(t_map *map, char *path, int *fd);
 t_err			prepare_map_init(t_map *map, char *path);
 
 // key_hook.c
-float			ray(t_game *game, float v);
+float			calculate_ray_distance(t_game *game, float v);
 void			move(t_game *game, int direction);
 int				key(int keycode, t_game *game);
 
@@ -273,14 +273,13 @@ t_err			map_h(t_map *map);
 // ray_utils.c
 float			ray_check_horizontal(t_game *game, t_ray *r);
 float			ray_check_vertical(t_game *game, t_ray *r);
-float			ray_next_steps_part(t_game *game, t_ray *r);
-float			ray_initial_part(t_game *game, float v, t_ray *r);
+float			compute_ray_steps(t_game *game, t_ray *r);
+float			initialize_ray(t_game *game, float v, t_ray *r);
 
 // raycasting.c
 int				sign(float f);
 float			save_color(t_game *game, float dist, int color_idx, float w);
 void			ray_next_step_calculation(t_game *game, t_ray *r);
-void			ray_initial_calculations(t_game *game, t_ray *r, float v);
 
 // set_texture_color.c
 void			set_texture_color_f(t_texture *texture);

@@ -1,15 +1,15 @@
 #include "cub3D.h"
 #include <math.h>
 
-float	ray(t_game *game, float v)
+float	calculate_ray_distance(t_game *game, float current_angle)
 {
-	t_ray	r;
+	t_ray	ray;
 	t_err	err;
 
-	err = ray_initial_part(game, v, &r);
+	err = initialize_ray(game, current_angle, &ray);
 	if (err != OK)
 		return (INFINITY);
-	return (ray_next_steps_part(game, &r));
+	return (compute_ray_steps(game, &ray));
 }
 
 void	move(t_game *game, int direction)
@@ -22,13 +22,13 @@ void	move(t_game *game, int direction)
 	angle = game->angle_view + direction * M_PI / 2;
 	dx = LINEAR_STEP * cos(angle);
 	dy = LINEAR_STEP * sin(angle);
-	dist = ray(game, sign(dy) * M_PI / 2);
+	dist = calculate_ray_distance(game, sign(dy) * M_PI / 2);
 	if (dist * dist < dy * dy)
 		dy = 0.0f;
-	dist = ray(game, (1 - (sign(dx) + 1) / 2) * M_PI);
+	dist = calculate_ray_distance(game, (1 - (sign(dx) + 1) / 2) * M_PI);
 	if (dist * dist < dx * dx)
 		dx = 0.0f;
-	dist = ray(game, angle);
+	dist = calculate_ray_distance(game, angle);
 	if (dist * dist < dy * dy + dx * dx)
 		if (sign(dy) * sign(dx) != 0)
 			dy = 0.0f;

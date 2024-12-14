@@ -1,7 +1,7 @@
 #include "cub3D.h"
 #include <math.h>
 
-void	line(t_game *game, int w, float dist)
+void	draw_vertical_line(t_game *game, int w, float dist)
 {
 	unsigned int	*dst;
 	unsigned int	*src;
@@ -31,22 +31,22 @@ void	line(t_game *game, int w, float dist)
 void	ray_casting(t_game *game)
 {
 	int		x;
-	float	dv;
-	float	v;
-	float	ray_r;
+	float	delta_angle;
+	float	current_angle;
+	float	ray_distance;
 
-	v = game->angle_view - FOV / 2;
-	dv = FOV / (WIDTH - 1);
+	current_angle = game->angle_view - FOV / 2;
+	delta_angle = FOV / (WIDTH - 1);
 	x = -1;
 	while (++x < WIDTH)
 	{
-		ray_r = ray(game, v);
-		if (ray_r == INFINITY)
-			ray_r = 0.1f;
-		if (ray_r < 0.1f)
-			ray_r = 0.1f;
-		line(game, x, ray_r * cos(game->angle_view - v));
-		v += dv;
+		ray_distance = calculate_ray_distance(game, current_angle);
+		if (ray_distance == INFINITY)
+			ray_distance = 0.1f;
+		if (ray_distance < 0.1f)
+			ray_distance = 0.1f;
+		draw_vertical_line(game, x, ray_distance * cos(game->angle_view - current_angle));
+		current_angle += delta_angle;
 	}
 }
 
