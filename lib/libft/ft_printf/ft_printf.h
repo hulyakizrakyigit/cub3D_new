@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: seemil <seemil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:52:34 by hkizrak-          #+#    #+#             */
-/*   Updated: 2024/12/14 21:52:35 by hkizrak-         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:04:23 by seemil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "unistd.h"
 # include "stdarg.h"
+# include "unistd.h"
 
 int	ft_printf(const char *format, ...);
 int	ft_printf_router(va_list *args, char op);

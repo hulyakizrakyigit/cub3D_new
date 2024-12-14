@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: seemil <seemil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:48:42 by hkizrak-          #+#    #+#             */
-/*   Updated: 2024/12/14 21:48:43 by hkizrak-         ###   ########.fr       */
+/*   Updated: 2024/12/14 21:58:24 by seemil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef CUB3D_H
 # define CUB3D_H
@@ -195,7 +194,8 @@ t_err			map_control(t_map *map);
 
 // control_map2.c
 t_err			is_map_valid(char **map, char p);
-t_err			validate_map_start(char **map, int *start_x, int *start_y, char p);
+t_err			validate_map_start(char **map, int *start_x, int *start_y,
+					char p);
 t_err			validate_map(char **map, char p);
 t_err			validate_map_cell(t_map *map, int i, int j, char p);
 t_err			map_control_part(t_map *map);

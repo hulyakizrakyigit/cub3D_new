@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puts.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: seemil <seemil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:52:43 by hkizrak-          #+#    #+#             */
-/*   Updated: 2024/12/14 21:52:44 by hkizrak-         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:04:27 by seemil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "ft_printf.h"
 
@@ -36,7 +34,7 @@ int	ft_putstr_c(char *str)
 
 int	ft_putnbr_c(long n)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	if (n < 0)

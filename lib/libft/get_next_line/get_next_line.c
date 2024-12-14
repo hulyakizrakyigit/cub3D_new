@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: seemil <seemil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:53:22 by hkizrak-          #+#    #+#             */
-/*   Updated: 2024/12/14 21:53:23 by hkizrak-         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:04:41 by seemil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "get_next_line.h"
 
@@ -34,7 +32,7 @@ char	*ft_readbuf(int fd, char *rest)
 	char	*buf;
 	int		b;
 
-	buf = (char *) malloc((BUFFER_SIZE + 1) * sizeof(char));
+	buf = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buf)
 		return (free(rest), NULL);
 	b = 1;
@@ -62,7 +60,7 @@ char	*ft_getline(char *rest)
 		return (NULL);
 	while (rest[i] && rest[i] != '\n')
 		i++;
-	line = (char *) malloc((i + 2) * sizeof(char));
+	line = (char *)malloc((i + 2) * sizeof(char));
 	if (!line)
 		return (NULL);
 	i = 0;
@@ -91,7 +89,7 @@ char	*ft_getrest(char *rest)
 		i++;
 	if (!rest[i])
 		return (free(rest), NULL);
-	new = (char *) malloc((ft_strlen_gnl(rest + i) + 1) * sizeof(char));
+	new = (char *)malloc((ft_strlen_gnl(rest + i) + 1) * sizeof(char));
 	if (!new)
 		return (free(rest), NULL);
 	j = 0;

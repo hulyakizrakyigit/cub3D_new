@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   init_texture.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: seemil <seemil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:46:22 by hkizrak-          #+#    #+#             */
-/*   Updated: 2024/12/14 21:46:23 by hkizrak-         ###   ########.fr       */
+/*   Updated: 2024/12/14 21:56:22 by seemil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "cub3D.h"
 #include <fcntl.h>

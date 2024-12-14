@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: seemil <seemil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:52:04 by hkizrak-          #+#    #+#             */
-/*   Updated: 2024/12/14 21:52:05 by hkizrak-         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:02:27 by seemil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "libft.h"
 
@@ -20,14 +18,14 @@ char	*ft_strrchr(const char *s, int c)
 	size_t	len;
 
 	len = ft_strlen(s);
-	if ((char) c == '\0')
+	if ((char)c == '\0')
 		if (s[len] == '\0')
-			return ((char *) &s[len]);
+			return ((char *)&s[len]);
 	i = len - 1;
 	while (i >= 0)
 	{
-		if (s[i] == (char) c)
-			return ((char *) &s[i]);
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
 		i--;
 	}
 	return (NULL);

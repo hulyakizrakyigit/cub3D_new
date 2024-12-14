@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   control_map_items.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: seemil <seemil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:45:12 by hkizrak-          #+#    #+#             */
-/*   Updated: 2024/12/14 21:45:13 by hkizrak-         ###   ########.fr       */
+/*   Updated: 2024/12/14 21:55:57 by seemil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "cub3D.h"
 

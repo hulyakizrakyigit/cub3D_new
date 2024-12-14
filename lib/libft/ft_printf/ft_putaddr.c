@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putaddr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: seemil <seemil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:52:40 by hkizrak-          #+#    #+#             */
-/*   Updated: 2024/12/14 21:52:41 by hkizrak-         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:04:25 by seemil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "ft_printf.h"
 

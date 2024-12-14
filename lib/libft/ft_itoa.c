@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: seemil <seemil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:49:54 by hkizrak-          #+#    #+#             */
-/*   Updated: 2024/12/14 21:49:55 by hkizrak-         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:01:06 by seemil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "libft.h"
 
@@ -60,7 +58,7 @@ char	*ft_itoa(int n)
 	size_t	length;
 
 	is_neg = (n < 0);
-	str = (char *) malloc((ft_count_digit(n) + is_neg + 1) * sizeof(char));
+	str = (char *)malloc((ft_count_digit(n) + is_neg + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
 	length = 0;

@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   control_map2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: seemil <seemil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:45:26 by hkizrak-          #+#    #+#             */
-/*   Updated: 2024/12/14 21:45:27 by hkizrak-         ###   ########.fr       */
+/*   Updated: 2024/12/14 21:57:16 by seemil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "cub3D.h"
 
@@ -17,7 +16,6 @@ t_err	is_map_valid(char **map, char p)
 {
 	int	i;
 	int	j;
-
 
 	i = 0;
 	while (map[i])

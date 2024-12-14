@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: seemil <seemil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:47:03 by hkizrak-          #+#    #+#             */
-/*   Updated: 2024/12/14 21:47:04 by hkizrak-         ###   ########.fr       */
+/*   Updated: 2024/12/14 21:56:27 by seemil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "cub3D.h"
 #include <math.h>

@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: seemil <seemil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:50:42 by hkizrak-          #+#    #+#             */
-/*   Updated: 2024/12/14 21:50:43 by hkizrak-         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:01:40 by seemil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "libft.h"
 
@@ -26,9 +24,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	while (--n)
 	{
 		if (*ps1 != *ps2)
-			return ((unsigned char) *ps1 - (unsigned char) *ps2);
+			return ((unsigned char)*ps1 - (unsigned char)*ps2);
 		ps1++;
 		ps2++;
 	}
-	return ((unsigned char) *ps1 - (unsigned char) *ps2);
+	return ((unsigned char)*ps1 - (unsigned char)*ps2);
 }

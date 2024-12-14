@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: seemil <seemil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:53:18 by hkizrak-          #+#    #+#             */
-/*   Updated: 2024/12/14 21:53:20 by hkizrak-         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:04:38 by seemil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "get_next_line.h"
 
@@ -35,12 +33,12 @@ char	*ft_strchr_gnl(const char *s, int c)
 		return (NULL);
 	while (s[i])
 	{
-		if (s[i] == (char) c)
-			return ((char *) &s[i]);
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
 		i++;
 	}
-	if ((char) c == '\0')
-		return ((char *) &s[i]);
+	if ((char)c == '\0')
+		return ((char *)&s[i]);
 	return (NULL);
 }
 
@@ -57,7 +55,7 @@ char	*ft_strjoin_gnl(char *s1, char const *s2)
 		s1 = malloc(sizeof(char) * 1);
 		s1[0] = '\0';
 	}
-	str = malloc ((ft_strlen_gnl(s1) + ft_strlen_gnl(s2)) + 1);
+	str = malloc((ft_strlen_gnl(s1) + ft_strlen_gnl(s2)) + 1);
 	if (!str)
 		return (0);
 	while (s1[i] != '\0')
