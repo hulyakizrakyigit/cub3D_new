@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mehkekli <mehkekli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 16:09:20 by mehkekli          #+#    #+#             */
-/*   Updated: 2023/12/05 16:09:22 by mehkekli         ###   ########.fr       */
+/*   Created: 2024/12/14 21:50:46 by hkizrak-          #+#    #+#             */
+/*   Updated: 2024/12/14 21:50:47 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "libft.h"
 

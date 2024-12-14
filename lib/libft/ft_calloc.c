@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mehkekli <mehkekli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 16:07:42 by mehkekli          #+#    #+#             */
-/*   Updated: 2023/12/05 16:07:44 by mehkekli         ###   ########.fr       */
+/*   Created: 2024/12/14 21:49:15 by hkizrak-          #+#    #+#             */
+/*   Updated: 2024/12/14 21:49:16 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "libft.h"
 

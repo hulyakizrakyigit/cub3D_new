@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mehkekli <mehkekli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 16:07:58 by mehkekli          #+#    #+#             */
-/*   Updated: 2023/12/05 16:08:00 by mehkekli         ###   ########.fr       */
+/*   Created: 2024/12/14 21:49:42 by hkizrak-          #+#    #+#             */
+/*   Updated: 2024/12/14 21:49:43 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 int	ft_isascii(int c)
 {

@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   start_game.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/14 21:47:51 by hkizrak-          #+#    #+#             */
+/*   Updated: 2024/12/14 21:47:52 by hkizrak-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "cub3D.h"
 #include <math.h>
 
@@ -35,14 +48,6 @@ void	set_position(t_game *game)
 {
 	game->pos_y = game->map.player.x + 0.5f;
 	game->pos_x = game->map.player.y + 0.5f;
-	// if (game->map.player.direction == 'N')
-	// 	game->pos_y -= 0.2f;
-	// else if (game->map.player.direction == 'S')
-	// 	game->pos_y += 0.2f;
-	// else if (game->map.player.direction == 'W')
-	// 	game->pos_x -= 0.2f;
-	// else if (game->map.player.direction == 'E')
-	// 	game->pos_x += 0.2f;
 	set_angle_view(game);
 }
 

@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mehkekli <mehkekli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 16:09:56 by mehkekli          #+#    #+#             */
-/*   Updated: 2023/12/05 16:09:58 by mehkekli         ###   ########.fr       */
+/*   Created: 2024/12/14 21:51:04 by hkizrak-          #+#    #+#             */
+/*   Updated: 2024/12/14 21:51:05 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "libft.h"
 

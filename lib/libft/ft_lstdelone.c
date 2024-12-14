@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mehkekli <mehkekli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 16:08:38 by mehkekli          #+#    #+#             */
-/*   Updated: 2023/12/05 16:08:40 by mehkekli         ###   ########.fr       */
+/*   Created: 2024/12/14 21:50:11 by hkizrak-          #+#    #+#             */
+/*   Updated: 2024/12/14 21:50:12 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "libft.h"
 

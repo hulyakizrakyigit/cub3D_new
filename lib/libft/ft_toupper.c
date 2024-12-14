@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mehkekli <mehkekli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 16:11:55 by mehkekli          #+#    #+#             */
-/*   Updated: 2023/12/05 16:11:56 by mehkekli         ###   ########.fr       */
+/*   Created: 2024/12/14 21:52:19 by hkizrak-          #+#    #+#             */
+/*   Updated: 2024/12/14 21:52:20 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 int	ft_toupper(int c)
 {

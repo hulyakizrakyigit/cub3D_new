@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mehkekli <mehkekli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 16:11:15 by mehkekli          #+#    #+#             */
-/*   Updated: 2023/12/05 16:11:17 by mehkekli         ###   ########.fr       */
+/*   Created: 2024/12/14 21:51:47 by hkizrak-          #+#    #+#             */
+/*   Updated: 2024/12/14 21:51:48 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "libft.h"
 

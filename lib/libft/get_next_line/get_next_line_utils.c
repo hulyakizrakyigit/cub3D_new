@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mehkekli <mehkekli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 16:13:04 by mehkekli          #+#    #+#             */
-/*   Updated: 2023/12/05 16:14:40 by mehkekli         ###   ########.fr       */
+/*   Created: 2024/12/14 21:53:18 by hkizrak-          #+#    #+#             */
+/*   Updated: 2024/12/14 21:53:20 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "get_next_line.h"
 

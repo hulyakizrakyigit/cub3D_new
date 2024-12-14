@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mehkekli <mehkekli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 16:07:31 by mehkekli          #+#    #+#             */
-/*   Updated: 2023/12/05 16:07:33 by mehkekli         ###   ########.fr       */
+/*   Created: 2024/12/14 21:49:02 by hkizrak-          #+#    #+#             */
+/*   Updated: 2024/12/14 21:49:03 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "libft.h"
 

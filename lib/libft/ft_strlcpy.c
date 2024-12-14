@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mehkekli <mehkekli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 16:11:11 by mehkekli          #+#    #+#             */
-/*   Updated: 2023/12/05 16:11:13 by mehkekli         ###   ########.fr       */
+/*   Created: 2024/12/14 21:51:44 by hkizrak-          #+#    #+#             */
+/*   Updated: 2024/12/14 21:51:45 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "libft.h"
 

@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mehkekli <mehkekli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 16:10:08 by mehkekli          #+#    #+#             */
-/*   Updated: 2023/12/05 16:10:10 by mehkekli         ###   ########.fr       */
+/*   Created: 2024/12/14 21:51:13 by hkizrak-          #+#    #+#             */
+/*   Updated: 2024/12/14 21:51:14 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "libft.h"
 

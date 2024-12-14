@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mehkekli <mehkekli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 16:08:09 by mehkekli          #+#    #+#             */
-/*   Updated: 2023/12/05 16:08:10 by mehkekli         ###   ########.fr       */
+/*   Created: 2024/12/14 21:49:50 by hkizrak-          #+#    #+#             */
+/*   Updated: 2024/12/14 21:49:51 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 int	ft_isprint(int c)
 {

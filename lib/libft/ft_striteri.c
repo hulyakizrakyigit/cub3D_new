@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mehkekli <mehkekli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 16:10:55 by mehkekli          #+#    #+#             */
-/*   Updated: 2023/12/05 16:10:57 by mehkekli         ###   ########.fr       */
+/*   Created: 2024/12/14 21:51:32 by hkizrak-          #+#    #+#             */
+/*   Updated: 2024/12/14 21:51:33 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "libft.h"
 

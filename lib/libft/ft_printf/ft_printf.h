@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mehkekli <mehkekli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 16:15:02 by mehkekli          #+#    #+#             */
-/*   Updated: 2023/12/05 16:15:04 by mehkekli         ###   ########.fr       */
+/*   Created: 2024/12/14 21:52:34 by hkizrak-          #+#    #+#             */
+/*   Updated: 2024/12/14 21:52:35 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H

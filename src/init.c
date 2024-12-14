@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/14 21:46:57 by hkizrak-          #+#    #+#             */
+/*   Updated: 2024/12/14 21:46:58 by hkizrak-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "cub3D.h"
 #include "libft.h"
 #include <ctype.h>
 #include <fcntl.h>
-#include <stdbool.h>
 #include <string.h>
 
 t_err	map_path_control(char *path)

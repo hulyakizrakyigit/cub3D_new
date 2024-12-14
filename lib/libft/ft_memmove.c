@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mehkekli <mehkekli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 16:09:28 by mehkekli          #+#    #+#             */
-/*   Updated: 2023/12/05 16:09:30 by mehkekli         ###   ########.fr       */
+/*   Created: 2024/12/14 21:50:49 by hkizrak-          #+#    #+#             */
+/*   Updated: 2024/12/14 21:50:50 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;	
+	size_t	i;
 
 	if (!dst && !src)
 		return (NULL);

@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mehkekli <mehkekli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 16:10:34 by mehkekli          #+#    #+#             */
-/*   Updated: 2023/12/05 16:10:36 by mehkekli         ###   ########.fr       */
+/*   Created: 2024/12/14 21:51:19 by hkizrak-          #+#    #+#             */
+/*   Updated: 2024/12/14 21:51:20 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "libft.h"
 
