@@ -5,26 +5,26 @@ void	draw_vertical_line(t_game *game, int w, float dist)
 {
 	unsigned int	*dst;
 	unsigned int	*src;
-	unsigned int	h;
-	float			src_f;
-	float			d_shift;
+	unsigned int	line_height;
+	float			texture_pos;
+	float			texture_step;
 
-	h = (float) HEIGHT / dist + 0.5f;
-	src_f = 0.0f;
-	d_shift = (float) game->txt[game->txt_idx].height / h;
-	if (h > HEIGHT)
+	line_height = (float) HEIGHT / dist + 0.5f;
+	texture_pos = 0.0f;
+	texture_step = (float) game->txt[game->txt_idx].height / line_height;
+	if (line_height > HEIGHT)
 	{
-		src_f = 0.5f * (h - HEIGHT) / h * game->txt[game->txt_idx].height;
-		h = HEIGHT;
+		texture_pos = 0.5f * (line_height - HEIGHT) / line_height * game->txt[game->txt_idx].height;
+		line_height = HEIGHT;
 	}
 	src = (unsigned int *) game->txt[game->txt_idx].addr;
 	src += (int)((float) game->txt_w * game->txt[game->txt_idx].width);
-	dst = (unsigned int *) game->img_w.addr + w + (HEIGHT - h) / 2 * WIDTH;
-	while (h-- > 0)
+	dst = (unsigned int *) game->img_w.addr + w + (HEIGHT - line_height) / 2 * WIDTH;
+	while (line_height-- > 0)
 	{
-		*dst = *(src + ((int)src_f) * game->txt[game->txt_idx].width);
+		*dst = *(src + ((int)texture_pos) * game->txt[game->txt_idx].width);
 		dst += WIDTH;
-		src_f += d_shift;
+		texture_pos += texture_step;
 	}
 }
 
