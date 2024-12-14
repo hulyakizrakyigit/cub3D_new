@@ -89,8 +89,8 @@ typedef struct s_ray
 	float		vertical_y;
 	float		vertical_distance;
 	float		horizontal_distance;
-	float		vertical_weight;
-	float		horizontal_weight;
+	float		vertical_fraction;
+	float		horizontal_fraction;
 }				t_ray;
 
 typedef struct s_img

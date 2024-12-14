@@ -11,7 +11,7 @@ float	ray_check_horizontal(t_game *game, t_ray *r)
 	if (index_y < 0 || index_y >= game->pure_map.map_height - 1)
 		return (INFINITY);
 	if (game->pure_map.map[index_y][(int)r->horizontal_x] == '1')
-		return (save_color(game, r->horizontal_distance, r->step_y + 2, r->horizontal_weight));
+		return (save_color(game, r->horizontal_distance, r->step_y + 2, r->horizontal_fraction));
 	else
 		r->horizontal_y += r->step_y;
 	return (OK);
@@ -27,7 +27,7 @@ float	ray_check_vertical(t_game *game, t_ray *r)
 	if ((int)r->vertical_y < 0 || (int)r->vertical_y >= game->pure_map.map_height - 1)
 		return (INFINITY);
 	if (game->pure_map.map[(int)r->vertical_y][index_x] == '1')
-		return (save_color(game, r->vertical_distance, r->step_x + 1, r->vertical_weight));
+		return (save_color(game, r->vertical_distance, r->step_x + 1, r->vertical_fraction));
 	else
 		r->vertical_x += r->step_x;
 	return (OK);
