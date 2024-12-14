@@ -1,4 +1,5 @@
 #include "cub3D.h"
+#include <math.h>
 
 void	line(t_game *game, int w, float dist)
 {

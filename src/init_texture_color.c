@@ -48,9 +48,7 @@ t_err	check_texture_color(char *line, t_map *map)
 		map->texture.f.rgb_str_arr = ft_split(map->texture.f.rgb_str, ',');
 		free(map->texture.f.rgb_str);
 		if (!is_invalid_color(map->texture.f.rgb_str_arr))
-		{
 			return (ERR);
-		}
 	}
 	else if (!ft_strncmp(line, "C ", 2))
 	{
@@ -58,9 +56,7 @@ t_err	check_texture_color(char *line, t_map *map)
 		map->texture.c.rgb_str_arr = ft_split(map->texture.c.rgb_str, ',');
 		free(map->texture.c.rgb_str);
 		if (!is_invalid_color(map->texture.c.rgb_str_arr))
-		{
 			return (ERR);
-		}
 	}
 	return (OK);
 }

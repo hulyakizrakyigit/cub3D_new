@@ -1,9 +1,10 @@
 #include "cub3D.h"
 
-t_err	is_map_valid(char **map)
+t_err	is_map_valid(char **map, char p)
 {
 	int	i;
 	int	j;
+
 
 	i = 0;
 	while (map[i])
@@ -11,7 +12,7 @@ t_err	is_map_valid(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] == '1' || map[i][j] == '0' || map[i][j] == 'N')
+			if (map[i][j] == '1' || map[i][j] == '0' || map[i][j] == p)
 				return (perr(__func__, "invalid map, map count is not one"));
 			j++;
 		}
@@ -20,7 +21,7 @@ t_err	is_map_valid(char **map)
 	return (OK);
 }
 
-t_err	validate_map_start(char **map, int *start_x, int *start_y)
+t_err	validate_map_start(char **map, int *start_x, int *start_y, char p)
 {
 	int	i;
 	int	j;
@@ -44,20 +45,20 @@ t_err	validate_map_start(char **map, int *start_x, int *start_y)
 		i++;
 	}
 	if (*start_x != -1 && *start_y != -1)
-		flood_fill(map, *start_x, *start_y);
+		flood_fill(map, *start_x, *start_y, p);
 	return (OK);
 }
 
-t_err	validate_map(char **map)
+t_err	validate_map(char **map, char p)
 {
 	int		start_x;
 	int		start_y;
 	t_err	err;
 
-	err = validate_map_start(map, &start_x, &start_y);
+	err = validate_map_start(map, &start_x, &start_y, p);
 	if (err != OK)
 		return (err);
-	err = is_map_valid(map);
+	err = is_map_valid(map, p);
 	if (err != OK)
 		return (perr(__func__, "is_map_valid failed"));
 	return (OK);

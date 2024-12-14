@@ -1,4 +1,5 @@
 #include "cub3D.h"
+#include <math.h>
 
 float	ray_check_horizontal(t_game *game, t_ray *r)
 {

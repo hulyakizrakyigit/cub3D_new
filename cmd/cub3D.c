@@ -22,14 +22,14 @@ t_err	run_map_checks(t_game *game, char *path)
 		return (perr(__func__, "map_control failed"), err);
 	err = map_h(&game->map);
 	if (err != OK)
-		return (perr(__func__, "map_control_part failed"), err);
+		return (perr(__func__, "map_h failed"), err);
 	err = control_player(&game->map);
 	if (err != OK)
 		return (perr(__func__, "control_reachable_player failed"), err);
 	err = map_control_part(&game->map);
 	if (err != OK)
 		return (perr(__func__, "map_control_part failed"), err);
-	err = validate_map(game->map.map_h);
+	err = validate_map(game->map.map_h, game->map.player.direction);
 	if (err != OK)
 		return (perr(__func__, "validate_map failed"), err);
 	return (OK);
@@ -66,7 +66,7 @@ int	main(int ac, char **av)
 	return (dispose(game), 0);
 }
 
-// __attribute((destructor)) void zombieHordeDestructor()
-// {
-// 	system("leaks cub3D");
-// }
+__attribute((destructor)) void zombieHordeDestructor()
+{
+	system("leaks cub3D");
+}

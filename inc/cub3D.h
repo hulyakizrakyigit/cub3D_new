@@ -4,7 +4,6 @@
 # include "../lib/libft/get_next_line/get_next_line.h"
 # include "../lib/libft/libft.h"
 # include "../lib/libmlx/mlx.h"
-# include <math.h>
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -206,9 +205,9 @@ t_err			map_control_boundaries(t_map *map);
 t_err			map_control(t_map *map);
 
 // control_map2.c
-t_err			is_map_valid(char **map);
-t_err			validate_map_start(char **map, int *start_x, int *start_y);
-t_err			validate_map(char **map);
+t_err			is_map_valid(char **map, char p);
+t_err			validate_map_start(char **map, int *start_x, int *start_y, char p);
+t_err			validate_map(char **map, char p);
 t_err			validate_map_cell(t_map *map, int i, int j, char p);
 t_err			map_control_part(t_map *map);
 
@@ -235,7 +234,7 @@ t_err			perr(const char *func, const char *msg);
 int				destroy_exit(t_game *game);
 
 // helper.c
-void			flood_fill(char **map, int x, int y);
+void			flood_fill(char **map, int x, int y, char p);
 bool			is_one_or_space(char c);
 bool			all_chars_are(char *str);
 
