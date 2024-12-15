@@ -6,7 +6,7 @@
 /*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:44:47 by hkizrak-          #+#    #+#             */
-/*   Updated: 2024/12/15 15:56:38 by hkizrak-         ###   ########.fr       */
+/*   Updated: 2024/12/15 15:57:57 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,9 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 		return (printf("Error\nInvalid number of arguments\n"), 1);
+	err = map_path_control(av[1]);
+	if (err != OK)
+		return (1);
 	game = initialize_game();
 	if (!game)
 		return (1);

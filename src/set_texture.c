@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_texture.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seemil <seemil@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:47:45 by hkizrak-          #+#    #+#             */
-/*   Updated: 2024/12/14 21:56:52 by seemil           ###   ########.fr       */
+/*   Updated: 2024/12/15 16:23:50 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,29 @@ t_err	control_texture_dir(t_texture *texture)
 
 t_err	set_texture(char *line, t_map *map)
 {
-	if (!ft_strncmp(line, "NO ", 3) || !ft_strncmp(line, "SO ", 3)
-		|| !ft_strncmp(line, "WE ", 3) || !ft_strncmp(line, "EA ", 3))
-		set_texture_dir(line, map);
-	if (!ft_strncmp(line, "F ", 2))
+	char	*tmp;
+
+	tmp = ft_strtrim_a(line, "\t\v\f\r\n ");
+	if (!tmp)
+		return (ERR);
+	if (!ft_strncmp(tmp, "NO ", 3) || !ft_strncmp(tmp, "SO ", 3)
+		|| !ft_strncmp(tmp, "WE ", 3) || !ft_strncmp(tmp, "EA ", 3))
+		set_texture_dir(tmp, map);
+	if (!ft_strncmp(tmp, "F ", 2))
 	{
-		if (!check_texture_color(line, map))
+		if (!check_texture_color(tmp, map))
 			return (ERR);
 		set_texture_color_f(&map->texture);
 		map->row++;
 	}
-	if (!ft_strncmp(line, "C ", 2))
+	if (!ft_strncmp(tmp, "C ", 2))
 	{
-		if (!check_texture_color(line, map))
+		if (!check_texture_color(tmp, map))
 			return (ERR);
 		set_texture_color_c(&map->texture);
 		map->row++;
 	}
+	free(tmp);
 	return (OK);
 }
 
@@ -71,6 +77,7 @@ void	set_texture_dir(char *line, t_map *map)
 {
 	if (!line)
 		return ;
+
 	if (ft_strncmp(line, "NO ", 3) == 0)
 		set_texture_for_direction(line, map, &map->texture.no);
 	else if (ft_strncmp(line, "SO ", 3) == 0)
