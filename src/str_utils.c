@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seemil <seemil@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:47:56 by hkizrak-          #+#    #+#             */
-/*   Updated: 2024/12/14 21:56:57 by seemil           ###   ########.fr       */
+/*   Updated: 2024/12/15 15:56:02 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ bool	strevery(int (*func)(int c), const char *str)
 
 bool	is_empty_line(char *line)
 {
+	if (!line)
+	{
+		printf("Error\nis_empty_line: line is NULL\n");
+		exit(0);
+	}
 	int	i;
 
 	i = 0;

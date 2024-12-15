@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_texture.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seemil <seemil@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:46:22 by hkizrak-          #+#    #+#             */
-/*   Updated: 2024/12/14 21:56:22 by seemil           ###   ########.fr       */
+/*   Updated: 2024/12/15 15:42:06 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,25 @@ void	load_textures_addresses(t_game *game)
 
 static void	control_textures(t_texture *texture)
 {
-	control_texture_dir(texture);
-	control_texture_color(&texture->c);
-	control_texture_color(&texture->f);
+	t_err	err;
+	err = control_texture_dir(texture);
+	if (err != OK)
+	{
+		printf("Error\ncontrol_texture_dir failed\n");
+		exit(0);
+	}
+	err = control_texture_color(&texture->c);
+	if (err != OK)
+	{
+		printf("Error\ncontrol_texture_color failed\n");
+		exit(0);
+	}
+	err = control_texture_color(&texture->f);
+	if (err != OK)
+	{
+		printf("Error\ncontrol_texture_color failed\n");
+		exit(0);
+	}
 }
 
 static bool	handle_empty_line(char *line, t_map *map)

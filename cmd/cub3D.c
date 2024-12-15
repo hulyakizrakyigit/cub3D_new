@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seemil <seemil@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:44:47 by hkizrak-          #+#    #+#             */
-/*   Updated: 2024/12/14 21:59:11 by seemil           ###   ########.fr       */
+/*   Updated: 2024/12/15 15:56:38 by hkizrak-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	main(int ac, char **av)
 	return (dispose(game), 0);
 }
 
-// __attribute((destructor)) void zombieHordeDestructor()
-// {
-// 	system("leaks cub3D");
-// }
+__attribute((destructor)) void zombieHordeDestructor()
+{
+	system("leaks cub3D");
+}
