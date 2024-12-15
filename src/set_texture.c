@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_texture.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: seemil <seemil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:47:45 by hkizrak-          #+#    #+#             */
-/*   Updated: 2024/12/15 16:23:50 by hkizrak-         ###   ########.fr       */
+/*   Updated: 2024/12/15 17:42:36 by seemil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_err	control_texture_dir(t_texture *texture)
 	if (texture->we.count != 1)
 		return (perr(__func__, "Invalid texture WE count."));
 	if (texture->ea.count != 1)
-		return (perr(__func__, "Invalid texture EAcount."));
+		return (perr(__func__, "Invalid texture EA count."));
 	return (OK);
 }
 
@@ -38,14 +38,14 @@ t_err	set_texture(char *line, t_map *map)
 	if (!ft_strncmp(tmp, "F ", 2))
 	{
 		if (!check_texture_color(tmp, map))
-			return (ERR);
+			return (free(tmp), ERR);
 		set_texture_color_f(&map->texture);
 		map->row++;
 	}
 	if (!ft_strncmp(tmp, "C ", 2))
 	{
 		if (!check_texture_color(tmp, map))
-			return (ERR);
+			return (free(tmp), ERR);
 		set_texture_color_c(&map->texture);
 		map->row++;
 	}
@@ -77,7 +77,9 @@ void	set_texture_dir(char *line, t_map *map)
 {
 	if (!line)
 		return ;
-
+	if (map->texture.no.count == 1 && map->texture.so.count == 1
+		&& map->texture.we.count == 1 && map->texture.ea.count == 1)
+		return ;
 	if (ft_strncmp(line, "NO ", 3) == 0)
 		set_texture_for_direction(line, map, &map->texture.no);
 	else if (ft_strncmp(line, "SO ", 3) == 0)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_texture.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkizrak- <hkizrak-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: seemil <seemil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 21:46:22 by hkizrak-          #+#    #+#             */
-/*   Updated: 2024/12/15 16:20:57 by hkizrak-         ###   ########.fr       */
+/*   Updated: 2024/12/15 17:58:28 by seemil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	load_textures_addresses(t_game *game)
 static void	control_textures(t_texture *texture)
 {
 	t_err	err;
+
 	err = control_texture_dir(texture);
 	if (err != OK)
 	{
