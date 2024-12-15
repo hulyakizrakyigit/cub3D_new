@@ -1,4 +1,4 @@
-CC					= gcc
+CC					= cc
 CFLAGS			=
 PROGRAM			= cub3D
 SRC_DIR			= src
@@ -30,7 +30,7 @@ LIBFT_FLAGS	= -L$(LIBFT_DIR) -lft
 
 w = 1
 ifeq '$(w)' '1'
-CFLAGS += -Wextra -Werror -Wall -g
+CFLAGS += -Wextra -Werror -Wall
 endif
 
 debug = 1
